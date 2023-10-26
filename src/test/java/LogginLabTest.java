@@ -34,8 +34,13 @@ public class LogginLabTest {
     @org.junit.Test
     public void thresholdReached() {
         Integer finalLimit = 7;
+
         Logginlab lab1 = new LogginLab();
-        lab1.thresholdReached(finalLimit);
+        lab1.setThreshold(finalLimit);
+
+        for (Integer i = 1; i <= finalLimit; i++) {
+            if (lab1.thresholdReached(i))
+        }
 
     }
 }

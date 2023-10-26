@@ -1,3 +1,4 @@
+import javax.management.InstanceNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -35,11 +36,17 @@ public class LogginLabTest {
     public void thresholdReached() {
         Integer finalLimit = 7;
 
-        Logginlab lab1 = new LogginLab();
+        LogginLab lab1 = new LogginLab();
         lab1.setThreshold(finalLimit);
 
         for (Integer i = 1; i <= finalLimit; i++) {
-            if (lab1.thresholdReached(i))
+            if (lab1.thresholdReached(i)) {
+                logger.log(Level.INFO, "Threshold limit was not reached! it is "+i);
+                assertFalse(lab1.thresholdReached(i));
+            } else {
+                logger.log(Level.INFO, "Threshold limit has been reached.");
+                assertTrue(lab1.thresholdReached((i)));
+            }
         }
 
     }

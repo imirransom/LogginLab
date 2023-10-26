@@ -31,4 +31,11 @@ public class LogginLabTest {
             }
         }
     }
+    @org.junit.Test
+    public void thresholdReached() {
+        Integer finalLimit = 7;
+        Logginlab lab1 = new LogginLab();
+        lab1.thresholdReached(finalLimit);
+
+    }
 }
